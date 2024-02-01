@@ -1,0 +1,736 @@
+(anaconda3)shafeen@shafeen-Dell-G15-5515:~$ fish
+Welcome to fish, the friendly interactive shell
+Type help for instructions on how to use fish
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/bin/mysql -u root -p
+[sudo] password for shafeen: 
+Sorry, try again.
+[sudo] password for shafeen: 
+Sorry, try again.
+[sudo] password for shafeen: 
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/opt/lampp/var/mysql/mysql.sock' (2)
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo system status mysql
+sudo: system: command not found
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo xamp status
+sudo: xamp: command not found
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo xampp status
+sudo: xampp: command not found
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo /opt/lampp/lampp start
+Starting XAMPP for Linux 8.2.12-0...
+XAMPP: Starting Apache...ok.
+XAMPP: Starting MySQL...ok.
+XAMPP: Starting ProFTPD...ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/bin/mysql -u root -p
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/opt/lampp/var/mysql/mysql.sock' (2)
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo /opt/lampp/lampp status
+
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is not running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp startmysql
+
+XAMPP: Starting MySQL...ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp status
+
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is not running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp stop
+Stopping XAMPP for Linux 8.2.12-0...
+XAMPP: Stopping Apache...ok.
+XAMPP: Stopping MySQL...not running.
+XAMPP: Stopping ProFTPD...ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp start
+Starting XAMPP for Linux 8.2.12-0...
+XAMPP: Starting Apache...ok.
+XAMPP: Starting MySQL...ok.
+XAMPP: Starting ProFTPD...ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp status
+
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is not running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> ls /opt/lampp/var/mysql/mysql.sock
+
+ls: cannot access '/opt/lampp/var/mysql/mysql.sock': No such file or directory
+shafeen@shafeen-Dell-G15-5515 ~ [2]> sudo nano /opt/lampp/etc/my.cnf
+
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp start
+
+Starting XAMPP for Linux 8.2.12-0...
+XAMPP: Starting Apache...already running.
+XAMPP: Starting MySQL...ok.
+XAMPP: Starting ProFTPD...already running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp status
+
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is not running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp startapache
+
+XAMPP: Starting Apache...already running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp startmysql
+
+XAMPP: Starting MySQL...ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp startmysql
+
+XAMPP: Starting MySQL...ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp startftp
+
+XAMPP: Starting ProFTPD...already running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo lsof -i :3306
+
+COMMAND   PID  USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+mariadbd 1495 mysql   26u  IPv4  43042      0t0  TCP localhost:mysql (LISTEN)
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp stop
+                                 sudo /opt/lampp/lampp start
+
+Stopping XAMPP for Linux 8.2.12-0...
+XAMPP: Stopping Apache...ok.
+XAMPP: Stopping MySQL...not running.
+XAMPP: Stopping ProFTPD...ok.
+Starting XAMPP for Linux 8.2.12-0...
+XAMPP: Starting Apache...ok.
+XAMPP: Starting MySQL...ok.
+XAMPP: Starting ProFTPD...rm: cannot remove '/opt/lampp/var/proftpd.pid': No such file or directory
+ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp stop
+                                 sudo /opt/lampp/lampp start
+
+Stopping XAMPP for Linux 8.2.12-0...
+XAMPP: Stopping Apache...ok.
+XAMPP: Stopping MySQL...not running.
+XAMPP: Stopping ProFTPD...ok.
+Starting XAMPP for Linux 8.2.12-0...
+XAMPP: Starting Apache...ok.
+XAMPP: Starting MySQL...ok.
+XAMPP: Starting ProFTPD...rm: cannot remove '/opt/lampp/var/proftpd.pid': No such file or directory
+ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo service mariadb start
+shafeen@shafeen-Dell-G15-5515 ~> sudo service mariadb status
+● mariadb.service - MariaDB 10.11.6 database server
+     Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; preset: enab>
+     Active: active (running) since Thu 2024-02-01 12:49:08 PKT; 7h ago
+       Docs: man:mariadbd(8)
+             https://mariadb.com/kb/en/library/systemd/
+   Main PID: 1495 (mariadbd)
+     Status: "Taking your SQL requests now..."
+      Tasks: 8 (limit: 37641)
+     Memory: 110.5M
+        CPU: 3.533s
+     CGroup: /system.slice/mariadb.service
+             └─1495 /usr/sbin/mariadbd
+
+Feb 01 12:49:07 shafeen-Dell-G15-5515 mariadbd[1495]: 2024-02-01 12:49:07 0 [No>
+Feb 01 12:49:07 shafeen-Dell-G15-5515 mariadbd[1495]: 2024-02-01 12:49:07 0 [Wa>
+Feb 01 12:49:07 shafeen-Dell-G15-5515 mariadbd[1495]: 2024-02-01 12:49:07 0 [No>
+Feb 01 12:49:07 shafeen-Dell-G15-5515 mariadbd[1495]: 2024-02-01 12:49:07 0 [No>
+Feb 01 12:49:07 shafeen-Dell-G15-5515 mariadbd[1495]: 2024-02-01 12:49:07 0 [No>
+Feb 01 12:49:07 shafeen-Dell-G15-5515 mariadbd[1495]: Version: '10.11.6-MariaDB>
+Feb 01 12:49:08 shafeen-Dell-G15-5515 systemd[1]: Started mariadb.service - Mar>
+Feb 01 12:49:08 shafeen-Dell-G15-5515 /etc/mysql/debian-start[2025]: Upgrading >
+Feb 01 12:49:08 shafeen-Dell-G15-5515 /etc/mysql/debian-start[2083]: Checking f>
+Feb 01 12:49:08 shafeen-Dell-G15-5515 /etc/mysql/debian-start[2097]: Triggering>
+shafeen@shafeen-Dell-G15-5515 ~ [SIGINT]> sudo /opt/lampp/lampp status
+
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is not running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp startmysql
+
+XAMPP: Starting MySQL...ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp status
+
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is not running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp restartmysql
+
+Unknown command or add-on!
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp restartmysql
+
+Unknown command or add-on!
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/bin/mysql -u root -p
+
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/opt/lampp/var/mysql/mysql.sock' (2)
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo /opt/lampp/bin/mysql -u root -p
+
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/opt/lampp/var/mysql/mysql.sock' (2)
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo /opt/lampp/lampp status
+
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is not running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo service mariadb stop
+shafeen@shafeen-Dell-G15-5515 ~> sudo service mariadb status
+○ mariadb.service - MariaDB 10.11.6 database server
+     Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; preset: enabled)
+     Active: inactive (dead) since Thu 2024-02-01 20:15:39 PKT; 3s ago
+   Duration: 7h 26min 30.343s
+       Docs: man:mariadbd(8)
+             https://mariadb.com/kb/en/library/systemd/
+    Process: 1495 ExecStart=/usr/sbin/mariadbd $MYSQLD_OPTS $_WSREP_NEW_CLUSTER $_WSREP_START_POSITIO>
+   Main PID: 1495 (code=exited, status=0/SUCCESS)
+     Status: "MariaDB server is down"
+        CPU: 3.569s
+
+Feb 01 20:15:38 shafeen-Dell-G15-5515 mariadbd[1495]: 2024-02-01 20:15:38 0 [Note] InnoDB: FTS optimi>
+Feb 01 20:15:38 shafeen-Dell-G15-5515 mariadbd[1495]: 2024-02-01 20:15:38 0 [Note] InnoDB: Starting s>
+Feb 01 20:15:38 shafeen-Dell-G15-5515 mariadbd[1495]: 2024-02-01 20:15:38 0 [Note] InnoDB: Dumping bu>
+Feb 01 20:15:38 shafeen-Dell-G15-5515 mariadbd[1495]: 2024-02-01 20:15:38 0 [Note] InnoDB: Buffer poo>
+Feb 01 20:15:39 shafeen-Dell-G15-5515 mariadbd[1495]: 2024-02-01 20:15:39 0 [Note] InnoDB: Removed te>
+Feb 01 20:15:39 shafeen-Dell-G15-5515 mariadbd[1495]: 2024-02-01 20:15:39 0 [Note] InnoDB: Shutdown c>
+Feb 01 20:15:39 shafeen-Dell-G15-5515 mariadbd[1495]: 2024-02-01 20:15:39 0 [Note] /usr/sbin/mariadbd>
+Feb 01 20:15:39 shafeen-Dell-G15-5515 systemd[1]: mariadb.service: Deactivated successfully.
+Feb 01 20:15:39 shafeen-Dell-G15-5515 systemd[1]: Stopped mariadb.service - MariaDB 10.11.6 database >
+Feb 01 20:15:39 shafeen-Dell-G15-5515 systemd[1]: mariadb.service: Consumed 3.569s CPU time.
+shafeen@shafeen-Dell-G15-5515 ~ [SIGINT]> sudo /opt/lampp/lampp status
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is not running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp stop
+Stopping XAMPP for Linux 8.2.12-0...
+XAMPP: Stopping Apache...ok.
+XAMPP: Stopping MySQL...not running.
+XAMPP: Stopping ProFTPD...ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp status
+Version: XAMPP for Linux 8.2.12-0
+Apache is not running.
+MySQL is not running.
+ProFTPD is not running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo service mariadb start
+shafeen@shafeen-Dell-G15-5515 ~> sudo service mariadb status
+● mariadb.service - MariaDB 10.11.6 database server
+     Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2024-02-01 20:16:31 PKT; 3s ago
+       Docs: man:mariadbd(8)
+             https://mariadb.com/kb/en/library/systemd/
+    Process: 33562 ExecStartPre=/usr/bin/install -m 755 -o mysql -g root -d /var/run/mysqld (code=exi>
+    Process: 33563 ExecStartPre=/bin/sh -c systemctl unset-environment _WSREP_START_POSITION (code=ex>
+    Process: 33565 ExecStartPre=/bin/sh -c [ ! -e /usr/bin/galera_recovery ] && VAR= ||   VAR=`cd /us>
+    Process: 33636 ExecStartPost=/bin/sh -c systemctl unset-environment _WSREP_START_POSITION (code=e>
+    Process: 33638 ExecStartPost=/etc/mysql/debian-start (code=exited, status=0/SUCCESS)
+   Main PID: 33624 (mariadbd)
+     Status: "Taking your SQL requests now..."
+      Tasks: 13 (limit: 37641)
+     Memory: 79.3M
+        CPU: 351ms
+     CGroup: /system.slice/mariadb.service
+             └─33624 /usr/sbin/mariadbd
+
+Feb 01 20:16:30 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:16:30 0 [Note] Plugin 'FEEDBACK'>
+Feb 01 20:16:30 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:16:30 0 [Note] InnoDB: Loading b>
+Feb 01 20:16:30 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:16:30 0 [Warning] You need to us>
+Feb 01 20:16:30 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:16:30 0 [Note] Server socket cre>
+Feb 01 20:16:30 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:16:30 0 [Note] InnoDB: Buffer po>
+shafeen@shafeen-Dell-G15-5515 ~ [SIGINT]> sudo /opt/lampp/bin/mysql -u root -p
+
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/opt/lampp/var/mysql/mysql.sock' (2)
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo /opt/lampp/lampp status
+
+Version: XAMPP for Linux 8.2.12-0
+Apache is not running.
+MySQL is not running.
+ProFTPD is not running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp startmysql
+
+XAMPP: Starting MySQL...ok.
+shafeen@shafeen-Dell-G15-5515 ~> ls /opt/lampp/var/mysql/mysql.sock
+
+ls: cannot access '/opt/lampp/var/mysql/mysql.sock': No such file or directory
+shafeen@shafeen-Dell-G15-5515 ~ [2]> sudo nano /opt/lampp/etc/my.cnf
+
+shafeen@shafeen-Dell-G15-5515 ~> socket=/opt/lampp/var/mysql/mysql.sock
+
+fish: Unsupported use of '='. In fish, please use 'set socket /opt/lampp/var/mysql/mysql.sock'.
+shafeen@shafeen-Dell-G15-5515 ~> socket=/opt/lampp/var/mysql/mysql.sock
+                                 ^C
+shafeen@shafeen-Dell-G15-5515 ~> sudo nano /opt/lampp/etc/my.cnf
+
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp stop
+                                 sudo /opt/lampp/lampp start
+
+Stopping XAMPP for Linux 8.2.12-0...
+XAMPP: Stopping Apache...not running.
+XAMPP: Stopping MySQL...not running.
+XAMPP: Stopping ProFTPD...not running.
+Starting XAMPP for Linux 8.2.12-0...
+XAMPP: Starting Apache...ok.
+XAMPP: Starting MySQL...ok.
+XAMPP: Starting ProFTPD...ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp status
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is not running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo lsof -i :3306
+
+COMMAND    PID  USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+mariadbd 33624 mysql   21u  IPv4 226636      0t0  TCP localhost:mysql (LISTEN)
+shafeen@shafeen-Dell-G15-5515 ~> sudo netstat -tuln | grep 3306
+
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN     
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp status
+
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is not running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo nano /opt/lampp/etc/my.cnf
+
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp status
+
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is not running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo netstat -tuln | grep 3306
+
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN     
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp stop
+                                 sudo /opt/lampp/lampp start
+
+Stopping XAMPP for Linux 8.2.12-0...
+XAMPP: Stopping Apache...ok.
+XAMPP: Stopping MySQL...not running.
+XAMPP: Stopping ProFTPD...ok.
+Starting XAMPP for Linux 8.2.12-0...
+XAMPP: Starting Apache...ok.
+XAMPP: Starting MySQL...ok.
+XAMPP: Starting ProFTPD...rm: cannot remove '/opt/lampp/var/proftpd.pid': No such file or directory
+ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp status
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is not running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp startmysql
+
+XAMPP: Starting MySQL...ok.
+shafeen@shafeen-Dell-G15-5515 ~> ls /opt/lampp/var/mysql/mysql.sock
+
+ls: cannot access '/opt/lampp/var/mysql/mysql.sock': No such file or directory
+shafeen@shafeen-Dell-G15-5515 ~ [2]> ls /opt/lampp/var/mysql/mysql.sock
+
+ls: cannot access '/opt/lampp/var/mysql/mysql.sock': No such file or directory
+shafeen@shafeen-Dell-G15-5515 ~ [2]> sudo service mariadb start
+shafeen@shafeen-Dell-G15-5515 ~> ls /opt/lampp/var/mysql/mysql.sock
+
+ls: cannot access '/opt/lampp/var/mysql/mysql.sock': No such file or directory
+shafeen@shafeen-Dell-G15-5515 ~ [2]> sudo /opt/lampp/lampp startmysql
+
+XAMPP: Starting MySQL...ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp stop
+                                 sudo /opt/lampp/lampp start
+
+Stopping XAMPP for Linux 8.2.12-0...
+XAMPP: Stopping Apache...ok.
+XAMPP: Stopping MySQL...not running.
+XAMPP: Stopping ProFTPD...ok.
+Starting XAMPP for Linux 8.2.12-0...
+XAMPP: Starting Apache...ok.
+XAMPP: Starting MySQL...ok.
+XAMPP: Starting ProFTPD...rm: cannot remove '/opt/lampp/var/proftpd.pid': No such file or directory
+ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp status
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is not running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> ls /opt/lampp/var/mysql/mysql.sock
+
+ls: cannot access '/opt/lampp/var/mysql/mysql.sock': No such file or directory
+shafeen@shafeen-Dell-G15-5515 ~ [2]> sudo /opt/lampp/lampp startmysql
+
+XAMPP: Starting MySQL...ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp status
+
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is not running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/bin/mysql -u root -p
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/opt/lampp/var/mysql/mysql.sock' (2)
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 31
+Server version: 10.11.6-MariaDB-0ubuntu0.23.10.2 Ubuntu 23.10
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| THEME_PARK         |
+| THEME_PARK2        |
+| fast               |
+| fast_dbms          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+8 rows in set (0.002 sec)
+
+MariaDB [(none)]> USE THEME_PARK
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [THEME_PARK]> show tables
+    -> ;
++----------------------+
+| Tables_in_THEME_PARK |
++----------------------+
+| ATTRACTION           |
+| EMPLOYEE             |
+| HOURS                |
+| SALES                |
+| SALES_LINE           |
+| THEMEPARK            |
+| TICKET               |
++----------------------+
+7 rows in set (0.000 sec)
+
+MariaDB [THEME_PARK]> SELECT * FROM TICKET;
+Empty set (0.000 sec)
+
+MariaDB [THEME_PARK]> SELECT * FROM THEMEPARK;
+Empty set (0.000 sec)
+
+MariaDB [THEME_PARK]> exit
+Bye
+shafeen@shafeen-Dell-G15-5515 ~> sudo mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 32
+Server version: 10.11.6-MariaDB-0ubuntu0.23.10.2 Ubuntu 23.10
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> eixt
+    -> exit
+    -> exit
+    -> Ctrl-C -- exit!
+Aborted
+shafeen@shafeen-Dell-G15-5515 ~ [1]> 
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo /opt/lampp/bin/mysql -u root -p
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/opt/lampp/var/mysql/mysql.sock' (2)
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo nano /opt/lampp/etc/my.cnf
+
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/bin/mysql -u root -p
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/opt/lampp/var/mysql/mysql.sock' (2)
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 33
+Server version: 10.11.6-MariaDB-0ubuntu0.23.10.2 Ubuntu 23.10
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> exit
+Bye
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp stop
+                                 sudo /opt/lampp/lampp start
+
+Stopping XAMPP for Linux 8.2.12-0...
+XAMPP: Stopping Apache...ok.
+XAMPP: Stopping MySQL...not running.
+XAMPP: Stopping ProFTPD...ok.
+Starting XAMPP for Linux 8.2.12-0...
+XAMPP: Starting Apache...ok.
+XAMPP: Starting MySQL...ok.
+XAMPP: Starting ProFTPD...rm: cannot remove '/opt/lampp/var/proftpd.pid': No such file or directory
+ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/bin/mysql -u root -p -P <3307>
+fish: Expected a string, but found a redirection
+sudo /opt/lampp/bin/mysql -u root -p -P <3307>
+                                         ^~~~^
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/bin/mysql -u root -p -P 3307
+
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/opt/lampp/var/mysql/mysql.sock' (2)
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo /opt/lampp/bin/mysql -u root -p
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/opt/lampp/var/mysql/mysql.sock' (2)
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo /opt/lampp/bin/mysql -u root
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/opt/lampp/var/mysql/mysql.sock' (2)
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo /opt/lampp/bin/mysql -u root -p
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/opt/lampp/var/mysql/mysql.sock' (2)
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo /opt/lampp/bin/mysql -u root 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/opt/lampp/var/mysql/mysql.sock' (2)
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo /usr/bin/myql -u root
+sudo: /usr/bin/myql: command not found
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo /usr/bin/mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 34
+Server version: 10.11.6-MariaDB-0ubuntu0.23.10.2 Ubuntu 23.10
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| THEME_PARK         |
+| THEME_PARK2        |
+| fast               |
+| fast_dbms          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+8 rows in set (0.000 sec)
+
+MariaDB [(none)]> exit
+Bye
+shafeen@shafeen-Dell-G15-5515 ~> sudo /usr/bin/mysql stop
+ERROR 1049 (42000): Unknown database 'stop'
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo systemcti stop mysqld
+sudo: systemcti: command not found
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo systemcti status
+sudo: systemcti: command not found
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo systemctl status mysql
+● mariadb.service - MariaDB 10.11.6 database server
+     Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2024-02-01 20:16:31 PKT; 33min ago
+       Docs: man:mariadbd(8)
+             https://mariadb.com/kb/en/library/systemd/
+   Main PID: 33624 (mariadbd)
+     Status: "Taking your SQL requests now..."
+      Tasks: 9 (limit: 37641)
+     Memory: 79.6M
+        CPU: 677ms
+     CGroup: /system.slice/mariadb.service
+             └─33624 /usr/sbin/mariadbd
+
+Feb 01 20:16:30 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:16:30 0 [Note] Plugin 'F>
+Feb 01 20:16:30 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:16:30 0 [Note] InnoDB: L>
+Feb 01 20:16:30 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:16:30 0 [Warning] You ne>
+Feb 01 20:16:30 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:16:30 0 [Note] Server so>
+Feb 01 20:16:30 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:16:30 0 [Note] InnoDB: B>
+Feb 01 20:16:30 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:16:30 0 [Note] /usr/sbin>
+Feb 01 20:16:30 shafeen-Dell-G15-5515 mariadbd[33624]: Version: '10.11.6-MariaDB-0ubuntu0.23.>
+Feb 01 20:16:31 shafeen-Dell-G15-5515 systemd[1]: Started mariadb.service - MariaDB 10.11.6 d>
+Feb 01 20:16:31 shafeen-Dell-G15-5515 /etc/mysql/debian-start[33640]: Upgrading MySQL tables >
+Feb 01 20:16:31 shafeen-Dell-G15-5515 /etc/mysql/debian-start[33657]: Triggering myisam-recov>
+shafeen@shafeen-Dell-G15-5515 ~ [SIGINT]> sudo systemctl service stop mysql
+Unknown command verb service.
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo systemctl stop mysql
+shafeen@shafeen-Dell-G15-5515 ~> sudo systemctl stop mysql
+shafeen@shafeen-Dell-G15-5515 ~> sudo systemctl status mysql
+○ mariadb.service - MariaDB 10.11.6 database server
+     Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; preset: enabled)
+     Active: inactive (dead) since Thu 2024-02-01 20:51:09 PKT; 1min 42s ago
+   Duration: 34min 38.735s
+       Docs: man:mariadbd(8)
+             https://mariadb.com/kb/en/library/systemd/
+    Process: 33624 ExecStart=/usr/sbin/mariadbd $MYSQLD_OPTS $_WSREP_NEW_CLUSTER $_WSREP_STAR>
+   Main PID: 33624 (code=exited, status=0/SUCCESS)
+     Status: "MariaDB server is down"
+        CPU: 702ms
+
+Feb 01 20:51:09 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:51:09 0 [Note] /usr/sbin>
+Feb 01 20:51:09 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:51:09 0 [Note] InnoDB: F>
+Feb 01 20:51:09 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:51:09 0 [Note] InnoDB: S>
+Feb 01 20:51:09 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:51:09 0 [Note] InnoDB: D>
+Feb 01 20:51:09 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:51:09 0 [Note] InnoDB: B>
+Feb 01 20:51:09 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:51:09 0 [Note] InnoDB: R>
+Feb 01 20:51:09 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:51:09 0 [Note] InnoDB: S>
+Feb 01 20:51:09 shafeen-Dell-G15-5515 mariadbd[33624]: 2024-02-01 20:51:09 0 [Note] /usr/sbin>
+Feb 01 20:51:09 shafeen-Dell-G15-5515 systemd[1]: mariadb.service: Deactivated successfully.
+Feb 01 20:51:09 shafeen-Dell-G15-5515 systemd[1]: Stopped mariadb.service - MariaDB 10.11.6 d>
+shafeen@shafeen-Dell-G15-5515 ~ [SIGINT]> sudo xampp status
+sudo: xampp: command not found
+shafeen@shafeen-Dell-G15-5515 ~ [1]> sudo /opt/lampp/lampp status
+
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is not running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp startmysql
+
+XAMPP: Starting MySQL...ok.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/lampp status
+
+Version: XAMPP for Linux 8.2.12-0
+Apache is running.
+MySQL is running.
+ProFTPD is running.
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/bin/mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.32-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| THEME_PARK         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [(none)]> USE THEME_PARK;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [THEME_PARK]> show tables;
++----------------------+
+| Tables_in_THEME_PARK |
++----------------------+
+| ATTRACTION           |
+| EMPLOYEE             |
+| HOURS                |
+| SALES                |
+| SALES_LINE           |
+| THEMEPARK            |
+| TICKET               |
++----------------------+
+7 rows in set (0.000 sec)
+
+MariaDB [THEME_PARK]> SELECT * FROM TICKET;
++-----------+--------------+-------------+-----------+
+| TICKET_NO | TICKET_PRICE | TICKET_TYPE | PARK_CODE |
++-----------+--------------+-------------+-----------+
+|     13001 | 18.99        | Child       | FR1001    |
+|     13002 | 34.99        | Adult       | FR1001    |
+|     13003 | 20.99        | Senior      | FR1001    |
+|     88567 | 22.50        | Child       | UK3452    |
+|     88568 | 42.10        | Adult       | UK3452    |
+|     89720 | 10.99        | Senior      | UK3452    |
++-----------+--------------+-------------+-----------+
+6 rows in set (0.001 sec)
+
+MariaDB [THEME_PARK]> SELECT * FROM EMPLOYEE
+    -> ;
++---------+-----------+-----------+-----------+------------+---------------+---------------+--------------+-----------+
+| EMP_NUM | EMP_TITLE | EMP_LNAME | EMP_FNAME | EMP_DOB    | EMP_HIRE_DATE | EMP_AREA_CODE | EMP_PHONE    | PARK_CODE |
++---------+-----------+-----------+-----------+------------+---------------+---------------+--------------+-----------+
+|    1234 | Mr.       | Doe       | John      | 2000-01-01 | 2021-01-01    | 123           | 123-456-7890 | FR1001    |
+|    2049 | Mr        | Rahat     | DAVID     | 1990-12-20 | 2015-05-05    | 7253          | 502-493-5555 | UK3452    |
+|    2222 | Miss      | Williams  | Emily     | 1992-08-23 | 2017-06-20    | 321           | 333-444-5555 | NL1202    |
+|    3333 | Mr.       | Brown     | Michael   | 1985-04-10 | 2015-12-03    | 555           | 888-777-9999 | FR1001    |
+|    4444 | Ms.       | Davis     | Sophia    | 1990-07-07 | 2016-09-25    | 666           | 222-111-3333 | SP4533    |
+|    5555 | Dr.       | Lee       | Andrew    | 1978-11-30 | 2014-03-12    | 888           | 444-555-6666 | SW2323    |
+|    5678 | Mrs.      | Smith     | Jane      | 1995-05-15 | 2020-02-15    | 456           | 987-654-3210 | NL1202    |
+|    6666 | Mrs.      | Taylor    | Olivia    | 1988-02-18 | 2013-07-08    | 999           | 777-888-0000 | UK2622    |
+|    7777 | Mr.       | Harris    | David     | 1997-06-05 | 2012-05-22    | 111           | 666-333-9999 | UK3452    |
+|    8888 | Miss      | Garcia    | Isabella  | 1983-09-12 | 2011-10-18    | 444           | 999-222-1111 | ZA1342    |
+|    9101 | Dr.       | Johnson   | DAVID     | 1980-12-05 | 2018-08-10    | 789           | 555-123-4567 | FR1001    |
++---------+-----------+-----------+-----------+------------+---------------+---------------+--------------+-----------+
+11 rows in set (0.000 sec)
+
+MariaDB [THEME_PARK]> INSERT INSERT INTO THEMEPARK VALUES ('PK2049', 'Garrison', 'Peshawar', 'PK');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INSERT INTO THEMEPARK VALUES ('PK2049', 'Garrison', 'Peshawar', 'PK')' at line 1
+MariaDB [THEME_PARK]> INSERT INTO THEMEPARK VALUES ('PK2049', 'Garrison', 'Peshawar', 'PK');
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [THEME_PARK]> SELECT * FROM THEMEPARK;
++-----------+----------------+--------------+--------------+
+| PARK_CODE | PARK_NAME      | PARK_CITY    | PARK_COUNTRY |
++-----------+----------------+--------------+--------------+
+| FR1001    | FairyLand      | PARIS        | FR           |
+| NL1202    | Efling         | NOORD        | IN           |
+| PK2049    | Garrison       | Peshawar     | PK           |
+| SP4533    | Adventure Port | BARCELONA    | SP           |
+| SW2323    | Labyrinthe     | LAUSANNE     | SV           |
+| UK2622    | MiniLand       | WINDSOR      | UK           |
+| UK3452    | PleasureLand   | STOKE        | UK           |
+| ZA1342    | GoldTown       | JOHANNESBURG | ZA           |
++-----------+----------------+--------------+--------------+
+8 rows in set (0.000 sec)
+
+MariaDB [THEME_PARK]> exit
+Bye
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/bin/mysqldump -u root -p THEME_PARK > /home/shafeen/Desktop/newthemepark_file3.sql
+Enter password: 
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/bin/mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 11
+Server version: 10.4.32-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> USE THEME_PARK;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [THEME_PARK]> SHOW TABLES;
++----------------------+
+| Tables_in_THEME_PARK |
++----------------------+
+| ATTRACTION           |
+| EMPLOYEE             |
+| HOURS                |
+| SALES                |
+| SALES_LINE           |
+| THEMEPARK            |
+| TICKET               |
++----------------------+
+7 rows in set (0.000 sec)
+
+MariaDB [THEME_PARK]> DELETE FROM THEMEPARK
+    -> WHERE PARK_CODE='PK2049';
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [THEME_PARK]> SELECT * FROM THEMEPARK;
++-----------+----------------+--------------+--------------+
+| PARK_CODE | PARK_NAME      | PARK_CITY    | PARK_COUNTRY |
++-----------+----------------+--------------+--------------+
+| FR1001    | FairyLand      | PARIS        | FR           |
+| NL1202    | Efling         | NOORD        | IN           |
+| SP4533    | Adventure Port | BARCELONA    | SP           |
+| SW2323    | Labyrinthe     | LAUSANNE     | SV           |
+| UK2622    | MiniLand       | WINDSOR      | UK           |
+| UK3452    | PleasureLand   | STOKE        | UK           |
+| ZA1342    | GoldTown       | JOHANNESBURG | ZA           |
++-----------+----------------+--------------+--------------+
+7 rows in set (0.000 sec)
+
+MariaDB [THEME_PARK]> exit
+Bye
+shafeen@shafeen-Dell-G15-5515 ~> sudo /opt/lampp/bin/mysqldump -u root -p THEME_PARK > /home/shafeen/Desktop/newthemepark_file4.sql
+Enter password: 
+shafeen@shafeen-Dell-G15-5515 ~> 
+
+
