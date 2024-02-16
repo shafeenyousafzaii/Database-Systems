@@ -3,4 +3,5 @@ sudo /opt/lampp/lampp status  		 	// CHECK THE STATUS OF LAMPP
 sudo /opt/lampp/lampp stop  		       // STOP THE LAMPP IF IT IS ALREADY RUNNNING
 sudo nano /opt/lampp/etc/my.cnf  	      // THIS IS THE CONFIG FILE SETTING FOR MYSQL TO CHANGE THE PORT YOU CAN , make it 33607 if you have XAMP AND UBUNTU MYSQL SERVICE as well
 sudo /opt/lampp/lampp start 		     //  THIS WILL START XAMPP AND ALL THE SERVICES
+Find and replace all utf8mb4_unicode_520_ci with uf8mb4_unicode_ci //for sql to mariaDB or if uni code is different
 
